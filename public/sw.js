@@ -14,6 +14,8 @@ self.addEventListener("install", (event) => {
           "/",
           "/users",
           "/about",
+          "/static/js/main.3c66cd22.js",
+          "/static/css/main.38cd8d06.css",
         ]);
       })
       .catch((error) => {
