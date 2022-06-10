@@ -56,3 +56,7 @@ code {
   background-color: #04aa6d;
   color: white;
 }
+.offline-text {
+  color: red;
+  padding: 10px;
+}

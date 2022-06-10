@@ -5,24 +5,28 @@ const Users = () => {
   const [mode, setMode] = useState("online");
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response: any) => {
-        response.json().then((result: any) => {
-          setData(result);
-          localStorage.setItem("users", JSON.stringify(result));
+    if (mode === "online") {
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response: any) => {
+          response.json().then((result: any) => {
+            setData(result);
+            localStorage.setItem("users", JSON.stringify(result));
+          });
+        })
+        .catch((error) => {
+          setMode("offline");
+          let collection: any = localStorage.getItem("users");
+          setData(JSON.parse(collection));
         });
-      })
-      .catch((error) => {
-        setMode("offline");
-        let collection: any = localStorage.getItem("users");
-        setData(JSON.parse(collection));
-      });
+    }
   }, []);
 
   return (
     <div>
       <div>
-        {mode === "offline" ? <div>You are in offline Mode</div> : null}
+        {mode === "offline" ? (
+          <div className="offline-text">You are in offline Mode</div>
+        ) : null}
       </div>
       <table id="customers">
         <thead>
