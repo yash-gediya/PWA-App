@@ -2,23 +2,21 @@ import React, { useEffect, useState } from "react";
 
 const Users = () => {
   const [data, setData]: any = useState();
-  const [mode, setMode] = useState("online");
+  const [mode, setMode]: any = useState("online");
 
   useEffect(() => {
-    if (mode === "online") {
-      fetch("https://jsonplaceholder.typicode.com/users")
-        .then((response: any) => {
-          response.json().then((result: any) => {
-            setData(result);
-            localStorage.setItem("users", JSON.stringify(result));
-          });
-        })
-        .catch((error) => {
-          setMode("offline");
-          let collection: any = localStorage.getItem("users");
-          setData(JSON.parse(collection));
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response: any) => {
+        response.json().then((result: any) => {
+          setData(result);
+          localStorage.setItem("users", JSON.stringify(result));
         });
-    }
+      })
+      .catch((error) => {
+        setMode("offline");
+        let collection: any = localStorage.getItem("users");
+        setData(JSON.parse(collection));
+      });
   }, []);
 
   return (
