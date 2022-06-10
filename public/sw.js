@@ -31,8 +31,8 @@ this.addEventListener("fetch", (event) => {
           if (resp) {
             return resp;
           }
-          let requestUrl = event.request.clone();
-          fetch(requestUrl);
+          // let requestUrl = event.request.clone();
+          // fetch(requestUrl);
         })
         .catch((err) => console.log(err))
     );
