@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 
 const Users = () => {
   const [data, setData]: any = useState();
@@ -24,7 +25,7 @@ const Users = () => {
       <div>
         {mode === "offline" ? <div>You are in offline Mode</div> : null}
       </div>
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Id</th>
@@ -44,7 +45,7 @@ const Users = () => {
               </tr>
             ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };
