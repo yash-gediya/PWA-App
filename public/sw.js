@@ -1,5 +1,5 @@
 let cacheData = "appV1";
-this.addEventListener("install", (event) => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(cacheData)
