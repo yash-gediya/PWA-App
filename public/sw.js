@@ -22,7 +22,7 @@ this.addEventListener("install", (event) => {
   );
 });
 
-this.addEventListener("fetch", (event) => {
+self.addEventListener("fetch", (event) => {
   if (!navigator.onLine) {
     event.respondWith(
       caches
